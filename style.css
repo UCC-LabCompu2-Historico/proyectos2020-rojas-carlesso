@@ -1,0 +1,13 @@
+contenedor {
+    text-align: center;
+}
+
+casillas {
+    text-align: center;
+    width: auto;
+    margin: auto;
+}
+
+titulos {
+    font-size: small;
+}
