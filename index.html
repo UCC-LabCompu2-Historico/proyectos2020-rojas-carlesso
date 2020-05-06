@@ -4,52 +4,163 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
-
-
+    <link href="https://fonts.googleapis.com/css2?family=Chivo&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="img/logo.png">
+    <title>Calculador de Areas</title>
 </head>
 
 <body>
-
-    <center>
-        <h1 style="color: chocolate;"> CALCULADOR DE AREAS</h1>
-        <P><b>calcula el area de las siguientes figuras. 
-      introduce los datos de las mismas figuras, obtene tu resultado!. 
-      tambien le vamos a presentar las formas de las figuras para verlo de un punto mas grafico/descriptivo!!</b>
-        </P>
-        <div class="titulos">
-            <h2><a href="">1.-CIRCULO</a><br>
-                <a href="">2.-CUADRADO</a><br>
-                <a href="">3.-TRIANGULO</a><br>
-                <a href="">4.-RECTANGULO</a><br></h2>
-        </div>
-
-        <h3>juan pablo rojas</h3>
-        <div class="contenedor"></div>
-
-        <img src="img/circulo.jpg">
-        <img src="img/cuadrado.jpg">
-        <img src="img/triangulo.jpg" width="250" alt="">
-        <img src="img/rectangulo.jpg">
-        </div>
-
-        <form>
-            <div class="casillas">
-                <label for="radio">radio:</label>
-                <input type="text" name="radio" id="radio" /form>
-                <label for="base">base:</label>
-                <input type="text" name="base" id="base" /form>
-                <label for="altura">altura:</label>
-                <input type="text" name="altura" id="altura" /form>
-                <label for="lado">lado:</label>
-                <input type="text" name="lado" id="lado" /form>
-                <label for="lado">lado:</label>
-                <input type="text" name="lado" id="lado" /form>
-            </div>
-
+<h1 id="titulo">CALCULADOR DE AREAS</h1>
+<div class="marco">
+    <h1><img src="img/circle.png" alt="">Circulo</h1>
+    <div class="dato">
+    <input id="r" name="tipoc" value="radio" class="radio" type="radio">
+    <label for="r" class="etiqueta">Radio (r)</label>
+    <input id="runidad" name="runidad" class="texto" type="text">
+    <label for="runidad">
+        <select>
+            <option value="mm">Milimetro (mm)</option>
+            <option value="cm">Centimetro (cm)</option>
+            <option value="m" selected="selected">Metro (m)</option>
+            <option value="km">Kilometro (km)</option>
+            <option value="in">Pulgada (in)</option>
+            <option value="ft">Pie (ft)</option>
+            <option value="yd">Yarda (yd)</option>
+        </select>
+    </label>
+    </div>
+    <div class="dato">
+    <input id="ac" name="tipoc" value="area" class="radio" type="radio" checked="checked">
+    <label for="ac" class="etiqueta">Area (A)</label>
+    <input id="acunidad" name="acunidad" class="texto" type="text">
+    <label for="acunidad">
+        <select>
+            <option value="mm">Milimetro (mm)</option>
+            <option value="cm">Centimetro (cm)</option>
+            <option value="m" selected="selected">Metro (m)</option>
+            <option value="km">Kilometro (km)</option>
+            <option value="in">Pulgada (in)</option>
+            <option value="ft">Pie (ft)</option>
+            <option value="yd">Yarda (yd)</option>
+        </select>
+    </label>
+    </div>
+    <div class="dato">
+    <button><b>enviar</b></button>
+    </div>
+    <canvas id="canvasc"></canvas>
+</div>
+<div class="marco">
+    <h1><img src="img/square.png" alt="">Rectangulo</h1>
+    <div class="dato">
+    <input id="l1" name="tipor" value="lado1" class="radio" type="radio">
+    <label for="l1" class="etiqueta">Lado 1 (l1)</label>
+    <input id="l1unidad" name="l1unidad" class="texto" type="text">
+    <label for="l1unidad">
+        <select>
+            <option value="mm">Milimetro (mm)</option>
+            <option value="cm">Centimetro (cm)</option>
+            <option value="m" selected="selected">Metro (m)</option>
+            <option value="km">Kilometro (km)</option>
+            <option value="in">Pulgada (in)</option>
+            <option value="ft">Pie (ft)</option>
+            <option value="yd">Yarda (yd)</option>
+        </select>
+    </label>
+    </div>
+    <div class="dato">
+    <input id="l2" name="tipor" value="lado2" class="radio" type="radio">
+    <label for="l2" class="etiqueta">Lado 2 (l2)</label>
+    <input id="l2unidad" name="l2unidad" class="texto" type="text">
+    <label for="l2unidad">
+        <select>
+            <option value="mm">Milimetro (mm)</option>
+            <option value="cm">Centimetro (cm)</option>
+            <option value="m" selected="selected">Metro (m)</option>
+            <option value="km">Kilometro (km)</option>
+            <option value="in">Pulgada (in)</option>
+            <option value="ft">Pie (ft)</option>
+            <option value="yd">Yarda (yd)</option>
+        </select>
+    </label>
+    </div>
+    <div class="dato">
+    <input id="ar" name="tipor" value="area" class="radio" type="radio" checked="checked">
+    <label for="ar" class="etiqueta">Area (A)</label>
+    <input id="arunidad" name="arunidad" class="texto" type="text">
+    <label for="arunidad">
+        <select>
+            <option value="mm">Milimetro (mm)</option>
+            <option value="cm">Centimetro (cm)</option>
+            <option value="m" selected="selected">Metro (m)</option>
+            <option value="km">Kilometro (km)</option>
+            <option value="in">Pulgada (in)</option>
+            <option value="ft">Pie (ft)</option>
+            <option value="yd">Yarda (yd)</option>
+        </select>
+    </label>
+    </div>
+    <div class="dato">
+    <button><b>enviar</b></button>
+    </div>
+    <canvas id="canvasr"></canvas>
+    </div>
+</div>
+<div class="marco">
+    <h1><img src="img/triangle.png" alt="">Triangulo</h1>
+    <div class="dato">
+    <input id="b" name="tipot" value="base" class="radio" type="radio">
+    <label for="b" class="etiqueta">Base (b)</label>
+    <input id="bunidad" name="bunidad" class="texto" type="text">
+    <label for="bunidad">
+        <select>
+            <option value="mm">Milimetro (mm)</option>
+            <option value="cm">Centimetro (cm)</option>
+            <option value="m" selected="selected">Metro (m)</option>
+            <option value="km">Kilometro (km)</option>
+            <option value="in">Pulgada (in)</option>
+            <option value="ft">Pie (ft)</option>
+            <option value="yd">Yarda (yd)</option>
+        </select>
+    </label>
+    </div>
+    <div class="dato">
+    <input id="h" name="tipot" value="altura" class="radio" type="radio">
+    <label for="h" class="etiqueta">Altura (h)</label>
+    <input id="hunidad" name="hunidad" class="texto" type="text">
+    <label for="hunidad" class="seleccion">
+        <select>
+            <option value="mm">Milimetro (mm)</option>
+            <option value="cm">Centimetro (cm)</option>
+            <option value="m" selected="selected">Metro (m)</option>
+            <option value="km">Kilometro (km)</option>
+            <option value="in">Pulgada (in)</option>
+            <option value="ft">Pie (ft)</option>
+            <option value="yd">Yarda (yd)</option>
+        </select>
+    </label>
+    </div>
+    <div class="dato">
+    <input id="at" name="tipot" value="area" class="radio" type="radio" checked="checked">
+    <label for="at" class="etiqueta">Area (A)</label>
+    <input id="atunidad" name="atunidad" class="texto" type="text">
+    <label for="atunidad">
+        <select>
+            <option value="mm">Milimetro (mm)</option>
+            <option value="cm">Centimetro (cm)</option>
+            <option value="m" selected="selected">Metro (m)</option>
+            <option value="km">Kilometro (km)</option>
+            <option value="in">Pulgada (in)</option>
+            <option value="ft">Pie (ft)</option>
+            <option value="yd">Yarda (yd)</option>
+        </select>
+    </label>
+    </div>
+    <div class="dato">
+    <button><b>enviar</b></button>
+    </div>
+    <canvas id="canvast"></canvas>
+</div>
 </body>
-
-</center>
-
-
 
 </html>
