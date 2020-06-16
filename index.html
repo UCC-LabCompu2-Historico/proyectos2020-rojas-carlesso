@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Chivo&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="img/logo.png">
+    <script type="text/javascript" src="java.js"></script>
     <title>Calculador de Areas</title>
 </head>
 
@@ -14,11 +15,11 @@
 <div class="marco">
     <h1><img src="img/circle.png" alt="">Circulo</h1>
     <div class="dato">
-    <input id="r" name="tipoc" value="radio" class="radio" type="radio">
+    <input id="r" name="tipoc" value="radio" class="radio" type="radio" onclick="ccir(this.value)">
     <label for="r" class="etiqueta">Radio (r)</label>
     <input id="runidad" name="runidad" class="texto" type="text">
     <label for="runidad">
-        <select>
+        <select id="selectru">
             <option value="mm">Milimetro (mm)</option>
             <option value="cm">Centimetro (cm)</option>
             <option value="m" selected="selected">Metro (m)</option>
@@ -30,11 +31,11 @@
     </label>
     </div>
     <div class="dato">
-    <input id="ac" name="tipoc" value="area" class="radio" type="radio" checked="checked">
+    <input id="ac" name="tipoc" value="area" class="radio" type="radio" checked="checked" onclick="ccir(this.value)">
     <label for="ac" class="etiqueta">Area (A)</label>
     <input id="acunidad" name="acunidad" class="texto" type="text">
     <label for="acunidad">
-        <select>
+        <select id="selectacu">
             <option value="mm">Milimetro (mm)</option>
             <option value="cm">Centimetro (cm)</option>
             <option value="m" selected="selected">Metro (m)</option>
@@ -46,18 +47,18 @@
     </label>
     </div>
     <div class="dato">
-    <button><b>enviar</b></button>
+    <button onclick="circulo()"><b>enviar</b></button>
     </div>
-    <canvas id="canvasc"></canvas>
+    <canvas id="canvasc" width="300px" height="300px"></canvas>
 </div>
 <div class="marco">
     <h1><img src="img/square.png" alt="">Rectangulo</h1>
     <div class="dato">
-    <input id="l1" name="tipor" value="lado1" class="radio" type="radio">
+    <input id="l1" name="tipor" value="lado1" class="radio" type="radio" onclick="crec(this.value)">
     <label for="l1" class="etiqueta">Lado 1 (l1)</label>
     <input id="l1unidad" name="l1unidad" class="texto" type="text">
     <label for="l1unidad">
-        <select>
+        <select id="selectl1u">
             <option value="mm">Milimetro (mm)</option>
             <option value="cm">Centimetro (cm)</option>
             <option value="m" selected="selected">Metro (m)</option>
@@ -69,11 +70,11 @@
     </label>
     </div>
     <div class="dato">
-    <input id="l2" name="tipor" value="lado2" class="radio" type="radio">
+    <input id="l2" name="tipor" value="lado2" class="radio" type="radio" onclick="crec(this.value)">
     <label for="l2" class="etiqueta">Lado 2 (l2)</label>
     <input id="l2unidad" name="l2unidad" class="texto" type="text">
     <label for="l2unidad">
-        <select>
+        <select id="selectl2u">
             <option value="mm">Milimetro (mm)</option>
             <option value="cm">Centimetro (cm)</option>
             <option value="m" selected="selected">Metro (m)</option>
@@ -85,11 +86,11 @@
     </label>
     </div>
     <div class="dato">
-    <input id="ar" name="tipor" value="area" class="radio" type="radio" checked="checked">
+    <input id="ar" name="tipor" value="area" class="radio" type="radio" checked="checked" onclick="crec(this.value)">
     <label for="ar" class="etiqueta">Area (A)</label>
     <input id="arunidad" name="arunidad" class="texto" type="text">
     <label for="arunidad">
-        <select>
+        <select id="selectaru">
             <option value="mm">Milimetro (mm)</option>
             <option value="cm">Centimetro (cm)</option>
             <option value="m" selected="selected">Metro (m)</option>
@@ -101,7 +102,7 @@
     </label>
     </div>
     <div class="dato">
-    <button><b>enviar</b></button>
+    <button onclick="cuadrado()"><b>enviar</b></button>
     </div>
     <canvas id="canvasr"></canvas>
     </div>
@@ -109,11 +110,11 @@
 <div class="marco">
     <h1><img src="img/triangle.png" alt="">Triangulo</h1>
     <div class="dato">
-    <input id="b" name="tipot" value="base" class="radio" type="radio">
+    <input id="b" name="tipot" value="base" class="radio" type="radio" onclick="ctri(this.value)">
     <label for="b" class="etiqueta">Base (b)</label>
     <input id="bunidad" name="bunidad" class="texto" type="text">
     <label for="bunidad">
-        <select>
+        <select id="selectbu">
             <option value="mm">Milimetro (mm)</option>
             <option value="cm">Centimetro (cm)</option>
             <option value="m" selected="selected">Metro (m)</option>
@@ -125,11 +126,11 @@
     </label>
     </div>
     <div class="dato">
-    <input id="h" name="tipot" value="altura" class="radio" type="radio">
+    <input id="h" name="tipot" value="altura" class="radio" type="radio" onclick="ctri(this.value)">
     <label for="h" class="etiqueta">Altura (h)</label>
     <input id="hunidad" name="hunidad" class="texto" type="text">
     <label for="hunidad" class="seleccion">
-        <select>
+        <select id="selecthu">
             <option value="mm">Milimetro (mm)</option>
             <option value="cm">Centimetro (cm)</option>
             <option value="m" selected="selected">Metro (m)</option>
@@ -141,11 +142,11 @@
     </label>
     </div>
     <div class="dato">
-    <input id="at" name="tipot" value="area" class="radio" type="radio" checked="checked">
+    <input id="at" name="tipot" value="area" class="radio" type="radio" checked="checked" onclick="ctri(this.value)">
     <label for="at" class="etiqueta">Area (A)</label>
     <input id="atunidad" name="atunidad" class="texto" type="text">
     <label for="atunidad">
-        <select>
+        <select id="selectatu">
             <option value="mm">Milimetro (mm)</option>
             <option value="cm">Centimetro (cm)</option>
             <option value="m" selected="selected">Metro (m)</option>
@@ -157,10 +158,14 @@
     </label>
     </div>
     <div class="dato">
-    <button><b>enviar</b></button>
+    <button onclick="triangulo()"><b>enviar</b></button>
     </div>
     <canvas id="canvast"></canvas>
 </div>
 </body>
+
+<footer>
+    Copyright &copy; 2020-2021 | Rojas Carlesso Proyectos 2020
+</footer>
 
 </html>

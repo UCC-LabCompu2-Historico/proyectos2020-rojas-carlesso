@@ -40,7 +40,7 @@ label.etiqueta{
     width: 80px;
 }
 canvas{
-    width: 100%;
+    width: 300px;
     height: 300px;
     border: 1px solid black;
 }
@@ -54,4 +54,24 @@ button{
     background: #f9ffc9cf;
     border: #739e0033 3px solid;
     width: 480px;
+}
+input#acunidad{
+    pointer-events: none;
+}
+input#arunidad{
+    pointer-events: none;
+}
+input#atunidad{
+    pointer-events: none;
+}
+footer{
+    height:50px;
+    line-height:50px;
+    background:#c1ff7c;
+    color: #000000;
+    text-align:center;
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
 }
