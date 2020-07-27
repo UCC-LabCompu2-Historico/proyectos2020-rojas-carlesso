@@ -4,24 +4,27 @@
  * @return
  */
 
-function circulo(){
-    var r=document.getElementById("runidad").value;
-    var ru=document.getElementById("selectru").value;
-    var a=document.getElementById("acunidad").value;
-    var au=document.getElementById("selectacu").value;
+function circulo(){ // funcion circulo
+    var r=document.getElementById("runidad").value; // forma sencilla de encontrar elementos en el archivo html.
+    var ru=document.getElementById("selectru").value;// forma sencilla de encontrar elementos en el archivo html.
+    var a=document.getElementById("acunidad").value;// forma sencilla de encontrar elementos en el archivo html.
+    var au=document.getElementById("selectacu").value;// forma sencilla de encontrar elementos en el archivo html.
 
-    if (document.getElementById('ac').checked){
+    if (document.getElementById('ac').checked){ //usar la "," y el "." como separador.
+
+        if(r.includes(",")){
+            r=Number(r.replace(",", "."));
+        }
+
         if(isNaN(r)){
             alert("Ingrese un valor válido");
             document.getElementById("runidad").value="";
             return;
         }
-        if(r.includes(",")){
-            r=Number(r.replace(",", "."));
-        }
-        r=metro(r,ru);
-        a=Math.PI*r*r;
-        a=unidad(a,au);
+        r=metro(r,ru); // conversion a metro
+        a=Math.PI*r*r; // area de circulo
+        a=unidad(a,au); // conversion a metro
+        a=a.toFixed(2); //mejora muestra dos decimales despues de la coma
         document.getElementById("acunidad").value=a;
     }
     else if(document.getElementById('r').checked){
@@ -33,9 +36,10 @@ function circulo(){
         if(a.includes(",")){
             a=Number(a.replace(",", "."));
         }
-        a=metro(a,au);
+        a=metro(a,au);//unidad a m
         r=Math.sqrt(a/Math.PI);
-        r=unidad(r,ru);
+        r=unidad(r,ru);// lo pasa a la unidad
+        r=r.toFixed(2); // mejora solicitada 
         document.getElementById("runidad").value=r;
     }
     canvasc();
@@ -56,58 +60,66 @@ function cuadrado(){
     var au=document.getElementById("selectaru").value;
 
     if(document.getElementById('ar').checked){
-        if(isNaN(l1) || isNaN(l2)){
-            alert("Ingrese un valor válido");
-            document.getElementById("l1unidad").value="";
-            document.getElementById("l2unidad").value="";
-            return;
-        }
+
         if(l1.includes(",")){
             l1=Number(l1.replace(",", "."));
         }
         if(l2.includes(",")){
             l2=Number(l2.replace(",", "."));
         }
-        l1=metro(l1,l1u);
-        l2=metro(l2,l2u);
-        a=l1*l2;
-        a=unidad(a,au);
+
+        if(isNaN(l1) || isNaN(l2)){
+            alert("Ingrese un valor válido");
+            document.getElementById("l1unidad").value="";
+            document.getElementById("l2unidad").value="";
+            return;
+
+        }
+        l1=metro(l1,l1u);//conversion
+        l2=metro(l2,l2u); //conversion
+        a=l1*l2; 
+        a=unidad(a,au);// conversion
+        a=a.toFixed(2); //mejora muestra 2 decimales despues de la coma
         document.getElementById("arunidad").value=a;
     }else if(document.getElementById('l2').checked){
+
+        if(l1.includes(",")){
+            l1=Number(l1.replace(",", "."));
+        }
+        if(a.includes(",")){
+            a=Number(a.replace(",", "."));
+        }
         if(isNaN(l1) || isNaN(a)){
             alert("Ingrese un valor válido");
             document.getElementById("l1unidad").value="";
             document.getElementById("arunidad").value="";
             return;
         }
-        if(l1.includes(",")){
-            l1=Number(l1.replace(",", "."));
-        }
-        if(a.includes(",")){
-            a=Number(a.replace(",", "."));
-        }
         l1=metro(l1,l1u);
         a=metro(a,au);
         l2=a/l1;
         l2=unidad(l2,l2u);
+        l2=l2.toFixed(2); //mejora muestra 2 decimales despues de la coma
         document.getElementById("l2unidad").value=l2;
     }else if(document.getElementById('l1').checked){
-        if(isNaN(l2) || isNaN(a)){
-            alert("Ingrese un valor válido");
-            document.getElementById("l2unidad").value="";
-            document.getElementById("arunidad").value="";
-            return;
-        }
+
         if(l2.includes(",")){
             l2=Number(l2.replace(",", "."));
         }
         if(a.includes(",")){
             a=Number(a.replace(",", "."));
         }
+        if(isNaN(l2) || isNaN(a)){
+            alert("Ingrese un valor válido");
+            document.getElementById("l2unidad").value="";
+            document.getElementById("arunidad").value="";
+            return;
+        }
         l2=metro(l2,l2u);
         a=metro(a,au);
         l1=a/l2;
         l1=unidad(l1,l1u);
+        l2=l1.toFixed(2); //mejora muestra 2 decimales despues de la coma
         document.getElementById("l1unidad").value=l1;
     }
     canvasr();
@@ -128,58 +140,65 @@ function triangulo(){
     var au=document.getElementById("selectatu").value;
 
     if(document.getElementById('at').checked){
+
+        if(b.includes(",")){
+            b=Number(b.replace(",", "."));
+        }
+        if(h.includes(",")){
+            h=Number(h.replace(",", "."));
+        }
         if(isNaN(b) || isNaN(h)){
             alert("Ingrese un valor válido");
             document.getElementById("bunidad").value="";
             document.getElementById("hunidad").value="";
             return;
         }
-        if(b.includes(",")){
-            b=Number(b.replace(",", "."));
-        }
-        if(h.includes(",")){
-            h=Number(h.replace(",", "."));
-        }
         b=metro(b,bu);
         h=metro(h,hu);
         a=(b*h)/2;
         a=unidad(a,au);
+        a=a.toFixed(2); //mejora muestra 2 decimales despues de la coma
+
         document.getElementById("atunidad").value=a;
     }else if(document.getElementById('h').checked){
+
+        if(b.includes(",")){
+            b=Number(b.replace(",", "."));
+        }
+        if(a.includes(",")){
+            a=Number(a.replace(",", "."));
+        }
         if(isNaN(b) || isNaN(a)){
             alert("Ingrese un valor válido");
             document.getElementById("bunidad").value="";
             document.getElementById("atunidad").value="";
             return;
         }
-        if(b.includes(",")){
-            b=Number(b.replace(",", "."));
-        }
-        if(a.includes(",")){
-            a=Number(a.replace(",", "."));
-        }
         b=metro(b,bu);
         a=metro(a,au);
         h=(a*2)/b;
         h=unidad(h,hu);
+        h=h.toFixed(2); //mejora muestra 2 decimales despues de la coma
         document.getElementById("hunidad").value=h;
     }else if(document.getElementById('b').checked){
-        if(isNaN(h) || isNaN(a)){
-            alert("Ingrese un valor válido");
-            document.getElementById("hunidad").value="";
-            document.getElementById("atunidad").value="";
-            return;
-        }
+
         if(h.includes(",")){
             h=Number(h.replace(",", "."));
         }
         if(a.includes(",")){
             a=Number(a.replace(",", "."));
         }
+        if(isNaN(h) || isNaN(a)){
+            alert("Ingrese un valor válido");
+            document.getElementById("hunidad").value="";
+            document.getElementById("atunidad").value="";
+            return;
+        }
         h=metro(h,hu);
         a=metro(a,au);
         b=(a*2)/h;
         b=unidad(b,bu);
+        b=b.toFixed(2);
         document.getElementById("bunidad").value=b;
     }
     canvast();
@@ -198,10 +217,10 @@ function metro(v, u){
         case "m":
             break;
         case "mm":
-            v=v/1000;
+            v=v*0.001;
             break;
         case "cm":
-            v=v/100;
+            v=v*0.01;
             break;
         case "km":
             v=v*1000;
@@ -231,22 +250,22 @@ function unidad(v,u){
         case "m":
             break;
         case "mm":
-            v=v*1000;
+            v=v*1000*1000;
             break;
         case "cm":
-            v=v*100;
+            v=v*100*100;
             break;
         case "km":
-            v=v/1000;
+            v=v*0.001*0.001;
             break;
         case "in":
-            v=v/0.0254;
+            v=v*39.3701*39.3701;
             break;
         case "ft":
-            v=v/0.3048;
+            v=v*3.28084*3.28084;
             break;
         case "yd":
-            v=v/0.9144;
+            v=v*1.09361*1.09361;
     }
     return v;
 }
@@ -322,7 +341,7 @@ function canvast(){
  * @return void
  */
 
-function ccir(value){
+function ccir(value){ 
     if(value==="radio"){
         document.getElementById("runidad").style.pointerEvents='none';
         document.getElementById("acunidad").style.pointerEvents='all';
